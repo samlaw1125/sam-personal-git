@@ -43,7 +43,6 @@ class _MyAppState extends State<Screen>{
             children: <Widget>[
               SizedBox(
                 height: 100,
-              
               child: Container(
                 padding: const EdgeInsets.all(32),
               child: RichText(
@@ -59,20 +58,20 @@ class _MyAppState extends State<Screen>{
                       style: TextStyle(
                         color: Colors.red,
                         fontSize: 32
+                          )
+                        )
+                      ]
                     )
-                   )
-                  ]
+                  )
                 )
-              )
-              )
               ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _buildButtonColumn(Colors.red, Icons.face, 'google'),
-              _buildButtonColumn(Colors.blue, Icons.games, 'Facebook')
+              _buildButtonColumn(Colors.red, Icons.games, 'google'),
+              _buildButtonColumn(Colors.blue, Icons.face, 'Facebook')
             ],
 
           ),
@@ -81,50 +80,40 @@ class _MyAppState extends State<Screen>{
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.all(32),
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Or Login With',
-                    style: TextStyle(
-                      decorationStyle: TextDecorationStyle.solid,
-                      color: Colors.grey
-                    )
-                  ),
+                child: Text('Or Login With',
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
                 )
               ) 
-
             ],
           ),
           Row(
             children: <Widget>[
-              Container(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Email',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      )
-                    ),
-                  ),
+              Text(
+                'Email',
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               )
             ],
           ),
-           Row(
+            Row(
             children: <Widget>[
-              SizedBox(
+              Container(
+                padding: const EdgeInsets.only(left: 16),
+              child: SizedBox(
                 height: 100,
-                width: 400,
+                width: 384,
               child: TextFormField(
                 decoration: InputDecoration(
                   hintText: 'Please Enter Your Email',
-                  fillColor: Colors.blue,
+                  fillColor: Colors.white,
+                  filled: true,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.horizontal(
                       left: Radius.zero, right: Radius.zero,),
-                    borderSide: BorderSide(color: Colors.lightBlue,
+                    borderSide: BorderSide(
                     ),
                   ),
                 ),
@@ -140,119 +129,115 @@ class _MyAppState extends State<Screen>{
                   fontFamily: "Poppins",
                 ),
               ),
-             ),
+              ),
+              )
             ]
           ),
           Row(
             children: <Widget>[
-              Container(
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Password',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    )
-                  ),
+              Text(
+                'Password',
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               )
             ],
           ),
-           Row(
-            children: <Widget>[
-              SizedBox(
-                height: 50,
-                width: 400,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Please Enter Password',
-                  fillColor: Colors.blue,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.zero, right: Radius.zero,),
-                    borderSide: BorderSide(color: Colors.lightBlue,
+          Row(
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.only(left: 16),
+            child: SizedBox(
+              height: 50,
+              width: 384,
+            child: TextFormField(
+              decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
+                hintText: 'Please Enter Password',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.horizontal(
+                    left: Radius.zero, right: Radius.zero,),
+                    borderSide: BorderSide(
                     ),
-                  ),
-                ),
-                validator : (val) {
-                  if(val.length==0) {
-                    return "Password cannot be empty";
-                  } else {
-                    return null;
-                  }
-                },
-                keyboardType: TextInputType.emailAddress,
-                style: TextStyle(
-                  fontFamily: "Poppins",
                 ),
               ),
-             ),
-            ]
-          ),
+              validator : (val) {
+                if(val.length==0) {
+                  return "Password cannot be empty";
+                } else {
+                  return null;
+                }
+              },
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(
+                fontFamily: "Poppins",
+              ),
+            ),
+            ),
+            ),
+          ]
+        ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.only(top: 16),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: FlatButton(
+                padding: const EdgeInsets.only(bottom: 32),
+                child: FlatButton(
                     textColor: Colors.white,
                     onPressed: () {},
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Forgot Password?',
-                        style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: Colors.white,
-                        )
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        color: Colors.white,
+                        decoration: TextDecoration.underline
                       ),
-                    ),
-                  )
-                    
-                  )
-                ),
+                    )
+                  ) 
+              ),    
             ],
           ),
-          Row(
-            children: <Widget>[
               IntrinsicWidth(
                 stepHeight: 200,
                 stepWidth: 400,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    RaisedButton(
+                    Container(
+                      padding: const EdgeInsets.only(bottom: 10),
+                    child: RaisedButton(
                       color: Colors.red,
                       onPressed: () {},
-                      child: RichText(
-                      text: TextSpan(
-                        text: 'LOGIN',
-                        style: TextStyle(
-                          color: Colors.white,
-                        )
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                        child: Text(
+                          'LOGIN',
+                          style: TextStyle(
+                            color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
                     ),
                     RaisedButton(
                       color: Colors.white,
                       onPressed: () {},
-                      child: RichText(
-                      text: TextSpan(
-                        text: 'SINGUP',
-                        style: TextStyle(
-                          color: Colors.red,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                        child: Text(
+                          'SINGIN',
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
                         )
                       ),
-                    ),
                     )
                   ],
                 ),
               )
             ],
           )
-            ]
-          ),
-    );
+        );
   }
 }
 
